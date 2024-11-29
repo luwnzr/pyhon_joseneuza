@@ -186,7 +186,7 @@ else:
 
 """PASSO 03 - CONDIÇÕES COMPOSTAS"""
 
-"""Qestão 26"""
+#Qestão 26
 num1 = int(input("Digite o primeiro número: "))
 num2 = int(input("Digite o segundo número: "))
 
@@ -197,7 +197,7 @@ elif num2 > num1:
 else:
     print("Não existe valor maior, os dois são iguais")
 
-"""Qestão 27"""
+#Qestão 27
 nota1 = float(input("Digite a primeira nota: "))
 nota2 = float(input("Digite a segunda nota: "))
 media = (nota1 + nota2) / 2
@@ -494,99 +494,326 @@ while cont <= 7:
     print(f'A soma dos números é: {soma}')
     cont += 1
 
-#Questão 49 - Contagem de pares e ímpares em 6 números
-pares = impares = 0
-for _ in range(6):
+#49) Crie um programa que leia 6 números inteiros e no final mostre quantos deles são pares e quantos são ímpares.
+pares = 0
+impares = 0
+contador = 1
+while contador <= 6:
     num = int(input("Digite um número: "))
     if num % 2 == 0:
         pares += 1
     else:
         impares += 1
+    contador += 1
 print(f"Pares: {pares}, Ímpares: {impares}")
 
-#Questão 50 - Sorteio de 20 números entre 0 e 10
+#50) Desenvolva um programa que faça o sorteio de 20 números entre 0 e 10 e mostre na tela:
+#a) Quais foram os números sorteados
+#b) Quantos números estão acima de 5
+#c) Quantos números são divisíveis por 3
 import random
 
-sorteados = [random.randint(0, 10) for _ in range(20)]
-print("Números sorteados:", sorteados)
-acima_de_5 = sum(1 for num in sorteados if num > 5)
-divisiveis_por_3 = sum(1 for num in sorteados if num % 3 == 0)
-print(f"Números acima de 5: {acima_de_5}")
-print(f"Números divisíveis por 3: {divisiveis_por_3}")
+numeros = []
+contador = 1
+while contador <= 20:
+    numero = random.randint(0, 10)
+    numeros.append(numero)
+    contador += 1
 
-#Questão 51 - Leitura do preço de 8 produtos e identificação do maior e menor
-precos = [float(input("Digite o preço do produto: R$")) for _ in range(8)]
-print(f"Maior preço: R${max(precos):.2f}")
-print(f"Menor preço: R${min(precos):.2f}")
+print(f"Números sorteados: {numeros}")
 
-#Questão 52 - Análise de idades em um grupo de 10 pessoas
-idades = [int(input("Digite a idade: ")) for _ in range(10)]
-media = sum(idades) / 10
-mais_18 = sum(1 for idade in idades if idade > 18)
-menos_5 = sum(1 for idade in idades if idade < 5)
-print(f"Média de idade: {media:.1f}")
-print(f"Pessoas com mais de 18 anos: {mais_18}")
-print(f"Pessoas com menos de 5 anos: {menos_5}")
-print(f"Maior idade: {max(idades)}")
+acima_5 = 0
+div3 = 0
+contador = 0
+while contador < 20:
+    if numeros[contador] > 5:
+        acima_5 += 1
+    if numeros[contador] % 3 == 0:
+        div3 += 1
+    contador += 1
 
-#Questão 53 - Análise de idade e sexo de 5 pessoas
-homens = mulheres = total_idade = idade_homens = mulheres_mais_20 = 0
+print(f"Quantos números estão acima de 5: {acima_5}")
+print(f"Quantos números são divisíveis por 3: {div3}")
 
-for _ in range(5):
-    idade = int(input("Digite a idade: "))
-    sexo = input("Digite o sexo (M/F): ").upper()
-    total_idade += idade
+# 51) Faça um aplicativo que leia o preço de 8 produtos. No final, mostre na tela qual foi o maior e qual foi o menor preço digitados.
 
+maior_preco = float(input("Digite o preço do produto 1: "))
+menor_preco = maior_preco
+
+contador = 2
+while contador <= 8:
+    preco = float(input(f"Digite o preço do produto {contador}: "))
+    if preco > maior_preco:
+        maior_preco = preco
+    if preco < menor_preco:
+        menor_preco = preco
+    contador += 1
+
+print(f"Maior preço: {maior_preco}")
+print(f"Menor preço: {menor_preco}")
+
+# 52) Crie um algoritmo que leia a idade de 10 pessoas, mostrando no final:
+# a) Qual é a média de idade do grupo
+# b) Quantas pessoas tem mais de 18 anos
+# c) Quantas pessoas tem menos de 5 anos
+# d) Qual foi a maior idade lida
+
+soma_idades = 0
+mais_de_18 = 0
+menos_de_5 = 0
+maior_idade = 0
+contador = 1
+
+while contador <= 10:
+    idade = int(input(f"Digite a idade da pessoa {contador}: "))
+    soma_idades += idade
+    
+    if idade > 18:
+        mais_de_18 += 1
+    if idade < 5:
+        menos_de_5 += 1
+    if idade > maior_idade:
+        maior_idade = idade
+    
+    contador += 1
+
+media_idade = soma_idades / 10
+print(f"Média de idade: {media_idade:.2f}")
+print(f"Pessoas com mais de 18 anos: {mais_de_18}")
+print(f"Pessoas com menos de 5 anos: {menos_de_5}")
+print(f"Maior idade lida: {maior_idade}")
+
+# 53) Faça um programa que leia a idade e o sexo de 5 pessoas, mostrando no final:
+# a) Quantos homens foram cadastrados
+# b) Quantas mulheres foram cadastradas
+# c) A média de idade do grupo
+# d) A média de idade dos homens
+# e) Quantas mulheres tem mais de 20 anos
+
+soma_idades = 0
+soma_idades_homens = 0
+homens = 0
+mulheres = 0
+mulheres_mais_20 = 0
+contador = 1
+
+while contador <= 5:
+    idade = int(input(f"Digite a idade da pessoa {contador}: "))
+    sexo = input(f"Digite o sexo da pessoa {contador} (M/F): ").strip().upper()
+    
+    soma_idades += idade
+    
     if sexo == 'M':
         homens += 1
-        idade_homens += idade
-    else:
+        soma_idades_homens += idade
+    elif sexo == 'F':
         mulheres += 1
         if idade > 20:
             mulheres_mais_20 += 1
+    
+    contador += 1
 
-media_idade = total_idade / 5
-media_homens = idade_homens / homens if homens > 0 else 0
-print(f"Homens cadastrados: {homens}")
-print(f"Mulheres cadastradas: {mulheres}")
-print(f"Média de idade do grupo: {media_idade:.1f}")
-print(f"Média de idade dos homens: {media_homens:.1f}")
+media_idade = soma_idades / 5
+if homens > 0:
+    media_idade_homens = soma_idades_homens / homens
+else:
+    media_idade_homens = 0
+
+print(f"Quantidade de homens cadastrados: {homens}")
+print(f"Quantidade de mulheres cadastradas: {mulheres}")
+print(f"Média de idade do grupo: {media_idade:.2f}")
+print(f"Média de idade dos homens: {media_idade_homens:.2f}")
 print(f"Mulheres com mais de 20 anos: {mulheres_mais_20}")
 
-#Questão 54 - Análise de peso e altura de 7 pessoas
-altura_total = peso_mais_90 = baixo_peso_altura = altos_pesados = 0
+# 54) Desenvolva um aplicativo que leia o peso e a altura de 7 pessoas, mostrando no final:
+# a) Qual foi a média de altura do grupo
+# b) Quantas pessoas pesam mais de 90Kg
+# c) Quantas pessoas que pesam menos de 50Kg tem menos de 1.60m
+# d) Quantas pessoas que medem mais de 1.90m pesam mais de 100Kg.
 
-for _ in range(7):
-    peso = float(input("Digite o peso (kg): "))
-    altura = float(input("Digite a altura (m): "))
-    altura_total += altura
+soma_alturas = 0
+mais_de_90kg = 0
+menos_50kg_menos_1_60m = 0
+mais_1_90m_mais_100kg = 0
+contador = 1
 
+while contador <= 7:
+    peso = float(input(f"Digite o peso da pessoa {contador} (kg): "))
+    altura = float(input(f"Digite a altura da pessoa {contador} (m): "))
+    
+    soma_alturas += altura
+    
     if peso > 90:
-        peso_mais_90 += 1
+        mais_de_90kg += 1
     if peso < 50 and altura < 1.60:
-        baixo_peso_altura += 1
+        menos_50kg_menos_1_60m += 1
     if altura > 1.90 and peso > 100:
-        altos_pesados += 1
+        mais_1_90m_mais_100kg += 1
+    
+    contador += 1
 
-media_altura = altura_total / 7
-print(f"Média de altura: {media_altura:.2f}m")
-print(f"Pessoas com mais de 90kg: {peso_mais_90}")
-print(f"Pessoas abaixo de 50kg e 1.60m: {baixo_peso_altura}")
-print(f"Pessoas acima de 1.90m e 100kg: {altos_pesados}")
+media_altura = soma_alturas / 7
 
-#Questão 55 - Jogo de adivinhação com 4 tentativas
+print(f"Média de altura do grupo: {media_altura:.2f}")
+print(f"Pessoas que pesam mais de 90Kg: {mais_de_90kg}")
+print(f"Pessoas com peso menor que 50Kg e altura menor que 1.60m: {menos_50kg_menos_1_60m}")
+print(f"Pessoas com altura maior que 1.90m e peso maior que 100Kg: {mais_1_90m_mais_100kg}")
+
+# 55) [DESAFIO] Vamos melhorar o jogo que fizemos no exercício 32. O computador vai sortear um número entre 1 e 10 e o jogador vai ter 4 tentativas para tentar acertar.
+
 import random
 
 numero_sorteado = random.randint(1, 10)
 tentativas = 4
 
+print("Bem-vindo ao jogo! Tente adivinhar o número entre 1 e 10.")
+
 while tentativas > 0:
-    palpite = int(input("Adivinhe o número (1-10): "))
-    if palpite == numero_sorteado:
-        print("Parabéns! Você acertou!")
-        break
+    tentativa = int(input(f"Você tem {tentativas} tentativas restantes. Qual é o seu palpite? "))
+    
+    if tentativa == numero_sorteado:
+        print("Parabéns! Você acertou o número!")
+        tentativas = 0  # Zera as tentativas para terminar o jogo
     else:
         tentativas -= 1
-        print(f"Errado! Você tem {tentativas} tentativas restantes.")
-if tentativas == 0:
-    print(f"Você perdeu! O número era {numero_sorteado}.")
+        if tentativa < numero_sorteado:
+            print("O número sorteado é maior. Tente novamente!")
+        elif tentativa > numero_sorteado:
+            print("O número sorteado é menor. Tente novamente!")
+
+if tentativas == 0 and tentativa != numero_sorteado:
+    print(f"Você não acertou! O número sorteado era {numero_sorteado}.")
+
+DESAFIO
+
+numero = int(input("Digite um valor múltiplo de 10: "))
+
+if numero % 10 != 0:
+    print("Número inválido. O número deve ser múltiplo de 10.")
+else:
+    
+    c100 = numero // 100
+    numero %= 100  # Atualiza o valor com o restante após retirar as cédulas de 100
+   
+    c50 = numero // 50
+    numero %= 50  # Atualiza o valor com o restante após retirar as cédulas de 50
+    
+    c20 = numero // 20
+    numero %= 20  # Atualiza o valor com o restante após retirar as cédulas de 20
+
+    c10 = numero // 10
+    numero %= 10  # Atualiza o valor com o restante após retirar as cédulas de 10
+
+    
+    if c100 > 0:
+        print(f"{c100} nota(s) de 100.00")
+    if c50 > 0:
+        print(f"{c50} nota(s) de 50.00")
+    if c20 > 0:
+        print(f"{c20} nota(s) de 20.00")
+    if c10 > 0:
+        print(f"{c10} nota(s) de 10.00")
+
+DESAFIO 2
+#Criar um programa que o computador faça um sorteio de um numero de 1 ate 100 
+#E você terá que adivinhar o número sorteado, a cada vez que colocar o numero o computador terá que exibir a mensagem:
+#- você acertou o número;
+#- o número digitado é menor que o numero sorteado
+#- o numero digitado é maior que o numero sorteado
+#- o jogo poderá terminar quando você acertar o número ou quando for feita 10 tentativas
+import random
+
+sorteio = random.randint(1, 100)
+
+tentativas = 0
+
+while tentativas < 10:
+    jogador = int(input("Digite um número entre 1 e 100: "))
+    tentativas += 1  
+
+    if jogador == sorteio:
+        print(f"Você acertou! O número sorteado era {sorteio}.")
+        break  
+    elif jogador < sorteio:
+        print("O número digitado é menor que o sorteado.")
+    else:
+        print("O número digitado é maior que o sorteado.")
+
+    if tentativas == 10:
+        print(f"Você atingiu o número máximo de tentativas. O número sorteado era {sorteio}.")
+
+
+
+
+
+DESAFIO 3
+# Inicializando as variáveis para contar os votos
+Candidato_a = 0
+Candidato_b = 0
+Candidato_c = 0
+Candidato_d = 0
+Candidato_e = 0
+votos_nulos = 0
+votos_brancos = 0
+total_votos = 0
+
+# Iniciando o loop de votação
+resposta = 'S'  # Começa com a opção de continuar a votação
+
+while resposta == 'S' or resposta == 's':  # Enquanto a resposta for 'S' ou 's'
+    # Solicita o voto
+    voto = input("Escreva o número do candidato em que deseja votar (1-5). Qualquer outro número será considerado voto nulo: ")
+
+    # Verifica qual candidato foi escolhido ou se o voto é nulo
+    if voto == "1":
+        Candidato_a += 1
+        print("Você votou no Candidato A.")
+    elif voto == "2":
+        Candidato_b += 1
+        print("Você votou no Candidato B.")
+    elif voto == "3":
+        Candidato_c += 1
+        print("Você votou no Candidato C.")
+    elif voto == "4":
+        Candidato_d += 1
+        print("Você votou no Candidato D.")
+    elif voto == "5":
+        Candidato_e += 1
+        print("Você votou no Candidato E.")
+    else:
+        votos_nulos += 1
+        print("Voto nulo.")
+
+    # Aumenta o total de votos
+    total_votos += 1
+
+    # Pergunta se deseja votar novamente
+    resposta = input("Deseja votar novamente? (S/N): ").upper()
+
+# Exibe os resultados finais
+print("Resultados finais:")
+print(f"Total de votos: {total_votos}")
+print(f"Candidato A: {Candidato_a} votos")
+print(f"Candidato B: {Candidato_b} votos")
+print(f"Candidato C: {Candidato_c} votos")
+print(f"Candidato D: {Candidato_d} votos")
+print(f"Candidato E: {Candidato_e} votos")
+print(f"Votos nulos: {votos_nulos}")
+print(f"Votos brancos: {votos_brancos}")
+
+# Determina o vencedor de forma manual
+if Candidato_a > Candidato_b and Candidato_a > Candidato_c and Candidato_a > Candidato_d and Candidato_a > Candidato_e:
+    vencedor = "Candidato A"
+elif Candidato_b > Candidato_a and Candidato_b > Candidato_c and Candidato_b > Candidato_d and Candidato_b > Candidato_e:
+    vencedor = "Candidato B"
+elif Candidato_c > Candidato_a and Candidato_c > Candidato_b and Candidato_c > Candidato_d and Candidato_c > Candidato_e:
+    vencedor = "Candidato C"
+elif Candidato_d > Candidato_a and Candidato_d > Candidato_b and Candidato_d > Candidato_c and Candidato_d > Candidato_e:
+    vencedor = "Candidato D"
+elif Candidato_e > Candidato_a and Candidato_e > Candidato_b and Candidato_e > Candidato_c and Candidato_e > Candidato_d:
+    vencedor = "Candidato E"
+else:
+    vencedor = "Nenhum candidato, empate"
+
+# Exibe o vencedor
+print(f"O vencedor da eleição é: {vencedor}")
