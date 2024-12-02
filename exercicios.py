@@ -475,10 +475,12 @@ for num in range (6,102,2):
 print("Soma = ", soma)
 
 #Questão 47 - Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450 + 400 + 350 + 300 + ... + 50 + 0
+
 soma = 0
-for num in range(500, -1, -50):
+for cont in range(1,4):
+    num = int(input('Digite um n25úmero:'))
     soma = soma + num
-print('Soma =', soma)
+print('Soma dos numeros', soma)
 
 #Questão 48 - Faça um programa que leia 7 números inteiros e no final mostre o somatório entre eles.
 soma = 0
