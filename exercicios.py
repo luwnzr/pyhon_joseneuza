@@ -468,22 +468,17 @@ while primeiro_valor <= ultimo_valor:
 print("Acabou")
 
 #Questão 46 - Crie um programa que calcule e mostre na tela o resultado da soma entre 6 + 8 + 10 + 12 + 14 + ... + 98 + 100.
-cont = 6
 soma = 0
-while cont <= 100:
-    soma = soma + cont
-    cont = cont + 2
+for num in range (6,102,2):
+    soma = soma + num
 
-print("Soma é igual ", soma)
+print("Soma = ", soma)
 
 #Questão 47 - Desenvolva um aplicativo que mostre na tela o resultado da expressão 500 + 450 + 400 + 350 + 300 + ... + 50 + 0
-cont = 500
 soma = 0
-while cont >= 0:
-    soma = soma + cont
-    cont = cont - 50 
-
-print("Soma é igual ", soma)
+for num in range(500, -1, -50):
+    soma = soma + num
+print('Soma =', soma)
 
 #Questão 48 - Faça um programa que leia 7 números inteiros e no final mostre o somatório entre eles.
 soma = 0
