@@ -813,3 +813,28 @@ else:
 
 # Exibe o vencedor
 print(f"O vencedor da eleição é: {vencedor}")
+
+#Exemplo For in
+for cont in range(10):
+    print(cont)
+
+for cont in range(20,30):
+    print(cont)
+    
+for cont in range(50,100,5):
+    print(cont)
+
+#Exemplo Lista
+lista = ['Maria', 'Joao', 'Ana']
+print(lista)
+lista.append('Marcos')
+
+print(lista)
+for nome in lista:
+    print(nome)
+
+numeros = [10,20,30,50,60,80]
+print('Soma = ', sum(numeros))
+print('Total de numeros = ', len(numeros))
+print('Menor Valor = ', min(numeros))
+print('Maior Valor = ', max(numeros))
