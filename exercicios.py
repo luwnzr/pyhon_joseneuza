@@ -835,3 +835,15 @@ print('Soma = ', sum(numeros))
 print('Total de numeros = ', len(numeros))
 print('Menor Valor = ', min(numeros))
 print('Maior Valor = ', max(numeros))
+
+# EX 1 : No python criar uma aplicação que defina uma lista co o nome dos alunos da turma.
+# E em seguida faça o sorteio de um dos nomes da lista.
+import random
+lista = ['Maria', 'Luane', 'Riklemy', 'Emilly', 'Pedro', 'Lara', 'Tiago', 'Izabela', 'Luciel', 'Nicolas', 'Samuel', 'Nathan', 'Nathan Aguiar', 'Danilo', 'Leandro', 'Bia', 'Vinicius', 'Ingrid', 'Debora', 'Yasmin']
+for nome in lista:
+    print(nome)
+    
+tamanho_lista = len(lista)
+num_sorteado = random.randint(0, tamanho_lista + 1)
+
+print(f'O aluno Sorteado foi: {lista[num_sorteado]}')
