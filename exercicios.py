@@ -847,3 +847,21 @@ tamanho_lista = len(lista)
 num_sorteado = random.randint(0, tamanho_lista + 1)
 
 print(f'O aluno Sorteado foi: {lista[num_sorteado]}')
+
+# EX 2: Refaça o exercício anterior para ler a quantidade de nomes para sortear.
+# Exemplo: Quantos nomes deseja sortear? 5
+# Então, deverá ser feito 5 sorteios dentro da lista
+
+import random
+
+alunos = ['Maria', 'Luane', 'Riklemy', 'Emilly', 'Pedro', 'Lara', 'Tiago', 'Izabela', 'Luciel', 'Nicolas', 'Samuel', 'Nathan', 'Nathan Aguiar', 'Danilo', 'Leandro', 'Bia', 'Vinicius', 'Ingrid', 'Debora', 'Yasmin']
+quantidade = int(input('Quantos nomes deseja sortear? '))
+
+if quantidade > len(alunos):
+    print('O numero de nomes a serem sorteados é maior do que o número de alunos.')
+    print(f'Temos apenas {len(alunos)}alunos.')
+else:
+    print('Nomes sorteados')
+    for contador in range(quantidade):
+        nome_sorteado = random.choice(alunos)
+        print(nome_sorteado)
