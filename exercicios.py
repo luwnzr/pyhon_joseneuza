@@ -865,3 +865,71 @@ else:
     for contador in range(quantidade):
         nome_sorteado = random.choice(alunos)
         print(nome_sorteado)
+
+# Criar um jogo de pedra, papel e tesoura no qual o computador é um dos jogadores. Ao final de cada jogada devera perguntar:
+# Qual sua opção de jogada?
+# 1 -  Pedra 
+# 2 -  Palel 
+# 3 - Tesoura
+# Opção : 1
+# Você escolheu Pedra e o computador Pedra - EMPATE, JOGAR NOVAMENTE (S/N) ?
+
+import random
+
+jogo = ["PEDRA", "PAPEL", "TESOURA"]
+meus_pontos = 0
+computador_pontos = 0
+
+while True:
+    print("Escolha uma das opções (Pedra / Papel / Tesoura)")
+    opcao = input("Escolha uma das opções: ").upper()
+    computador = random.choice(jogo)
+
+    if opcao == computador:
+        print("Empate")
+        print("Você escolheu:", opcao)
+        print("Computador escolheu:", computador)
+
+    elif opcao == "PEDRA":
+        if computador == "TESOURA":
+            meus_pontos += 1
+            print("Você ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+        else:
+            computador_pontos += 1
+            print("Computador ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+
+    elif opcao == "TESOURA":
+        if computador == "PAPEL":
+            meus_pontos += 1
+            print("Você ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+        else:
+            computador_pontos += 1
+            print("Computador ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+
+    elif opcao == "PAPEL":
+        if computador == "PEDRA":
+            meus_pontos += 1
+            print("Você ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+        else:
+            computador_pontos += 1
+            print("Computador ganhou")
+            print("Você escolheu:", opcao)
+            print("Computador escolheu:", computador)
+
+    resposta = input("Deseja jogar novamente (S/N)? ").upper()
+    if resposta != "S":
+        break
+
+print("Resultado Final")
+print("Meus pontos:", meus_pontos, "Pontos")
+print("Computador pontos:", computador_pontos, "Pontos")
