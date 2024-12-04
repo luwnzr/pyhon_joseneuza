@@ -933,3 +933,12 @@ while True:
 print("Resultado Final")
 print("Meus pontos:", meus_pontos, "Pontos")
 print("Computador pontos:", computador_pontos, "Pontos")
+
+# Criar um programa que leia um numero e exiba a tabuada de multiplicação do numero que foi lido.
+# Exemplo: Digite um número: 7
+# 7 x 1 = 4, 7 x 2 = 14, 7 x 3 = 21...
+
+numero = int(input('Escreva um numero: '))
+cont = 1
+for cont in range(1,11):
+    print(numero, 'X', cont, '=', numero*cont)
