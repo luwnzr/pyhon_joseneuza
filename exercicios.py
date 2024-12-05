@@ -942,3 +942,11 @@ numero = int(input('Escreva um numero: '))
 cont = 1
 for cont in range(1,11):
     print(numero, 'X', cont, '=', numero*cont)
+
+# Criar um programa em pythn que exiba na tela as tabuadas de multiplicação de 1 até 10.
+
+for num in range(1, 11):  
+    print('Tabuada do', num)
+    for cont in range(1, 11):  
+        print(num, 'x', cont, '=', num*cont)
+    print() 
