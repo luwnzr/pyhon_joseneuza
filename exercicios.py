@@ -950,3 +950,28 @@ for num in range(1, 11):
     for cont in range(1, 11):  
         print(num, 'x', cont, '=', num*cont)
     print() 
+
+# 1- Criar uma lista e inicializar com os valores a seguir:
+# lista:[10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+# exibir a lista na ordem inversa
+# exibir o menor numero da lista
+# exibir o maior numero da lista
+# exibir o total de numeros da lista
+# exibir a soma da lista
+# exibir a ,edia dos numeros da lista
+# exibir quantas vezes o numero -20 apareceu na lista
+
+lista = [10, 20, 30, 20, 20, 30, 40, 50, -20, 60, 60, -20, -20]
+print("Lista na ordem inversa:", lista[::-1])
+menor = min(lista)
+print("Menor número da lista:", menor)
+maior = max(lista)
+print("Maior número da lista:", maior)
+total = len(lista)
+print("Total de números da lista:", total)
+soma = sum(lista)
+print("Soma dos números da lista:", soma)
+media = soma / total
+print("Média dos números da lista:", media)
+quantidade_minus_20 = lista.count(-20)
+print("Número -20 apareceu", quantidade_minus_20, "vezes na lista.")
